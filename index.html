@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hackathon Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 </head>
 <body>
   <div id="root"></div>
 
-  <!-- React + ReactDOM -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script type="text/javascript">
+    const { useState } = React;
+    const { createRoot } = ReactDOM;
 
-  <!-- Your custom script -->
-  <script src="./frontend.js"></script>
+    function App() {
+      const modules = [
+        { title: "Fall Detector", description: "Analyze sensor data to detect falls." },
+        { title: "Quiz", description: "Interactive quiz module." },
+        { title: "Visualizer", description: "Explore data with dynamic charts." },
+      ];
+
+      return (
+        React.createElement("div", { className: "min-h-screen bg-gray-50 p-6" },
+          React.createElement("header", { className: "mb-8" },
+            React.createElement("h1", { className: "text-4xl font-bold text-center" }, "Hackathon Dashboard")
+          ),
+          React.createElement("div", { className: "max-w-2xl mx-auto mb-6" },
+            React.createElement("div", { className: "relative" },
+              React.createElement("input", {
+                type: "text",
+                placeholder: "Search modules...",
+                className: "w-full p-3 pl-10 rounded-lg shadow focus:outline-none"
+              }),
+              React.createElement("div", { className: "absolute top-3 left-3" }, "🔍")
+            )
+          ),
+          React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" },
+            modules.map(m =>
+              React.createElement("div", {
+                key: m.title,
+                className: "border rounded-lg p-6 hover:shadow-lg transition bg-white"
+              },
+                React.createElement("h2", { className: "text-xl font-semibold mb-2" }, m.title),
+                React.createElement("p", { className: "mb-4" }, m.description),
+                React.createElement("button", {
+                  className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                }, "Open")
+              )
+            )
+          )
+        )
+      );
+    }
+
+    const root = createRoot(document.getElementById("root"));
+    root.render(React.createElement(App));
+  </script>
 </body>
 </html>
