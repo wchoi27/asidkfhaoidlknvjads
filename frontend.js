@@ -1,9 +1,7 @@
-import React from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+const { useState } = React;
+const { createRoot } = ReactDOM;
 
-export default function App() {
+function App() {
   const modules = [
     { title: "Fall Detector", description: "Analyze sensor data to detect falls." },
     { title: "Quiz", description: "Interactive quiz module." },
@@ -11,33 +9,37 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-center">Hackathon Dashboard</h1>
-      </header>
-      <div className="max-w-2xl mx-auto mb-6">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search modules..."
-            className="w-full p-3 pl-10 rounded-lg shadow focus:outline-none"
-          />
-          <Search className="absolute top-3 left-3" />
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {modules.map((m) => (
-          <Card key={m.title} className="hover:shadow-lg transition">
-            <CardHeader>
-              <h2 className="text-xl font-semibold">{m.title}</h2>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-4">{m.description}</p>
-              <Button>Open</Button>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
+    React.createElement("div", { className: "min-h-screen bg-gray-50 p-6" },
+      React.createElement("header", { className: "mb-8" },
+        React.createElement("h1", { className: "text-4xl font-bold text-center" }, "Hackathon Dashboard")
+      ),
+      React.createElement("div", { className: "max-w-2xl mx-auto mb-6" },
+        React.createElement("div", { className: "relative" },
+          React.createElement("input", {
+            type: "text",
+            placeholder: "Search modules...",
+            className: "w-full p-3 pl-10 rounded-lg shadow focus:outline-none"
+          }),
+          React.createElement("div", { className: "absolute top-3 left-3" }, "🔍")
+        )
+      ),
+      React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" },
+        modules.map(m =>
+          React.createElement("div", {
+            key: m.title,
+            className: "border rounded-lg p-6 hover:shadow-lg transition bg-white"
+          },
+            React.createElement("h2", { className: "text-xl font-semibold mb-2" }, m.title),
+            React.createElement("p", { className: "mb-4" }, m.description),
+            React.createElement("button", {
+              className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            }, "Open")
+          )
+        )
+      )
+    )
   );
 }
+
+const root = createRoot(document.getElementById('root'));
+root.render(React.createElement(App));
