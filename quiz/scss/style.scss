@@ -1,0 +1,84 @@
+@import "reset";
+
+@import "base";
+
+// Import Font 
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,400i,500,500i,600,700');
+
+body {
+  background-color: crimson;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+
+//Header 
+header {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  font-weight: 500;
+}
+
+//start button 
+.start_button {
+  font-size: 1.8rem;
+  width: 300px;
+  margin: 3rem 0;
+  border-radius: 5px;
+  border: 2px solid #5a5050;
+  padding: 10px 0;
+  &:hover {
+    background: #30deb7;
+    border: 2px solid #186d5a;
+  }
+}
+
+//timer block 
+.timer_block {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+//question
+.question {
+  font-size: 1.5rem;
+  margin: 2rem 0;
+}
+
+//option
+.option {
+  font-family: 'Raleway', sans-serif;
+  display: block;
+  border: none;
+  font-size: 1.5rem;
+  width: 100%;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  padding: 10px 0;
+}
+
+.correct, .wrong {
+  margin: 5rem 0;
+  display: none;
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+// Stat Board
+.stat_header {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 1.5rem 0;
+  text-decoration: underline;
+}
+
+.answer_count_block {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0.5rem 0;
+}
+
+.icon_block {
+  width: 100px;
+}
