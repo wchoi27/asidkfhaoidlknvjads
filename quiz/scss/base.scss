@@ -1,0 +1,29 @@
+a {
+  text-decoration: none;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  max-width : 700px;
+  width : 90%;
+  margin : 0 auto;
+}
+
+.center {
+  text-align : center;
+}
+
+.right {
+  text-align: right;
+}
+.color-white {
+  color: #fff;
+}
+
+button, a {
+  cursor: pointer;
+}
